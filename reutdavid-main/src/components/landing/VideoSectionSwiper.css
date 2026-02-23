@@ -1,0 +1,114 @@
+/* Video section: 3D coverflow – fixed widths, no empty slides, visible videos */
+
+.video-swiper-wrap {
+  position: relative;
+  overflow: visible;
+  padding: 0 1rem;
+}
+
+.video-swiper-coverflow {
+  position: relative;
+  overflow: visible !important;
+  padding: 24px 0;
+}
+
+/* Slide width: mobile 220px, desktop 320px */
+.video-swiper-slide {
+  width: 220px !important;
+  flex-shrink: 0;
+  transition: all 0.6s ease;
+  opacity: 0.5;
+  transform: scale(0.85);
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .video-swiper-slide {
+    width: 320px !important;
+  }
+}
+
+.video-swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+
+/* Video container: fixed dimensions, aspect-ratio 9/16 */
+.video-slide-container {
+  width: 320px;
+  max-width: 80vw;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  background: hsl(var(--muted));
+  position: relative;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .video-slide-container {
+    width: 220px;
+  }
+}
+
+.video-slide-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-slide-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--muted));
+}
+
+/* Navigation */
+.video-swiper-coverflow .swiper-button-prev,
+.video-swiper-coverflow .swiper-button-next {
+  --swiper-navigation-size: 44px;
+  --swiper-navigation-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+}
+
+.video-swiper-coverflow .swiper-button-prev:hover,
+.video-swiper-coverflow .swiper-button-next:hover {
+  background: hsl(var(--muted));
+}
+
+.video-swiper-coverflow .swiper-button-prev {
+  left: 4px;
+  right: auto;
+}
+
+.video-swiper-coverflow .swiper-button-next {
+  right: 4px;
+  left: auto;
+}
+
+[dir="rtl"] .video-swiper-coverflow.swiper-rtl .swiper-button-prev {
+  left: auto;
+  right: 4px;
+}
+
+[dir="rtl"] .video-swiper-coverflow.swiper-rtl .swiper-button-next {
+  right: auto;
+  left: 4px;
+}
+
+@media (max-width: 640px) {
+  .video-swiper-coverflow .swiper-button-prev,
+  .video-swiper-coverflow .swiper-button-next {
+    --swiper-navigation-size: 36px;
+  }
+}

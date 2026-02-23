@@ -90,7 +90,7 @@ const AccessibilityButton = () => {
   ];
 
   return (
-    <div className="fixed bottom-6 left-6 z-50">
+    <div className="fixed bottom-6 end-6 z-50">
       <button
         onClick={() => setOpen(!open)}
         className="bg-primary text-primary-foreground w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-warm-brown-light transition-colors"
@@ -101,7 +101,7 @@ const AccessibilityButton = () => {
       </button>
       {open && (
         <div
-          className="absolute bottom-14 left-0 bg-card border border-border rounded-xl p-4 shadow-xl min-w-[220px]"
+          className="absolute bottom-14 start-0 bg-card border border-border rounded-xl p-4 shadow-xl min-w-[220px]"
           role="menu"
           aria-label="אפשרויות נגישות"
         >
@@ -112,7 +112,7 @@ const AccessibilityButton = () => {
                 key={c.label}
                 role="menuitem"
                 onClick={c.action}
-                className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-body transition-colors text-right ${
+                className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-body transition-colors text-start ${
                   c.active
                     ? "bg-primary/10 text-primary font-semibold"
                     : "text-foreground hover:bg-muted"

@@ -1,31 +1,34 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { z } from "zod";
 import { supabase } from "@/lib/supabase";
 
-const leadSchema = z.object({
-  name: z.string().trim().min(1, "שדה חובה").max(100),
-  email: z.string().trim().email("כתובת אימייל לא תקינה").max(255),
-  phone: z.string().trim().min(9, "מספר טלפון לא תקין").max(15),
-});
-
-type LeadForm = z.infer<typeof leadSchema>;
-
 const LeadFormSection = () => {
-  const [form, setForm] = useState<LeadForm>({ name: "", email: "", phone: "" });
-  const [errors, setErrors] = useState<Partial<Record<keyof LeadForm, string>>>({});
+  const { t } = useTranslation();
+  const [form, setForm] = useState({ name: "", email: "", phone: "" });
+  const [errors, setErrors] = useState<Partial<Record<"name" | "email" | "phone", string>>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const createSchema = () => {
+    return z.object({
+      name: z.string().trim().min(1, t("lead.validation.nameRequired")).max(100),
+      email: z.string().trim().email(t("lead.validation.emailInvalid")).max(255),
+      phone: z.string().trim().min(9, t("lead.validation.phoneInvalid")).max(15),
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError(null);
 
+    const leadSchema = createSchema();
     const result = leadSchema.safeParse(form);
     if (!result.success) {
       const fieldErrors: typeof errors = {};
       result.error.errors.forEach((err) => {
-        const field = err.path[0] as keyof LeadForm;
+        const field = err.path[0] as keyof typeof fieldErrors;
         fieldErrors[field] = err.message;
       });
       setErrors(fieldErrors);
@@ -43,7 +46,7 @@ const LeadFormSection = () => {
     setSubmitting(false);
 
     if (error) {
-      setSubmitError("אירעה שגיאה בשליחת הפרטים. נסו שוב.");
+      setSubmitError(t("lead.error"));
       return;
     }
 
@@ -57,8 +60,10 @@ const LeadFormSection = () => {
         <div className="container mx-auto px-4 max-w-md text-center">
           <div className="bg-card border border-border rounded-2xl p-8">
             <div className="text-4xl mb-4">🎉</div>
-            <h3 className="font-display text-2xl font-bold text-foreground mb-2">תודה!</h3>
-            <p className="text-muted-foreground">הפרטים נשלחו בהצלחה. נחזור אליך בקרוב.</p>
+            <h3 className="font-display text-2xl font-bold text-foreground mb-2">
+              {t("lead.success.title")}
+            </h3>
+            <p className="text-muted-foreground">{t("lead.success.message")}</p>
           </div>
         </div>
       </section>
@@ -69,14 +74,16 @@ const LeadFormSection = () => {
     <section id="lead-form" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 max-w-md">
         <h2 className="font-display text-3xl font-bold text-foreground text-center mb-8">
-          רוצים לשמוע עוד?
+          {t("lead.title")}
         </h2>
         <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-8 space-y-5">
           {submitError && (
             <p className="text-destructive text-sm text-center">{submitError}</p>
           )}
           <div>
-            <label htmlFor="lead-name" className="block font-body text-sm font-medium text-foreground mb-1">שם מלא</label>
+            <label htmlFor="lead-name" className="block font-body text-sm font-medium text-foreground mb-1">
+              {t("lead.name")}
+            </label>
             <input
               id="lead-name"
               type="text"
@@ -87,7 +94,9 @@ const LeadFormSection = () => {
             {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
           </div>
           <div>
-            <label htmlFor="lead-email" className="block font-body text-sm font-medium text-foreground mb-1">אימייל</label>
+            <label htmlFor="lead-email" className="block font-body text-sm font-medium text-foreground mb-1">
+              {t("lead.email")}
+            </label>
             <input
               id="lead-email"
               type="email"
@@ -99,7 +108,9 @@ const LeadFormSection = () => {
             {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
           </div>
           <div>
-            <label htmlFor="lead-phone" className="block font-body text-sm font-medium text-foreground mb-1">טלפון</label>
+            <label htmlFor="lead-phone" className="block font-body text-sm font-medium text-foreground mb-1">
+              {t("lead.phone")}
+            </label>
             <input
               id="lead-phone"
               type="tel"
@@ -115,7 +126,7 @@ const LeadFormSection = () => {
             disabled={submitting}
             className="w-full bg-primary text-primary-foreground py-3 rounded-xl font-bold text-lg hover:bg-warm-brown-light transition-colors disabled:opacity-60"
           >
-            {submitting ? "שולח..." : "שלחו לי פרטים"}
+            {submitting ? t("lead.submitting") : t("lead.button")}
           </button>
         </form>
       </div>

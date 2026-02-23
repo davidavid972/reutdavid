@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 97%;
+    --foreground: 25 30% 15%;
+
+    --card: 36 30% 95%;
+    --card-foreground: 25 30% 15%;
+
+    --popover: 36 33% 97%;
+    --popover-foreground: 25 30% 15%;
+
+    --primary: 25 45% 35%;
+    --primary-foreground: 36 33% 97%;
+
+    --secondary: 33 25% 85%;
+    --secondary-foreground: 25 30% 20%;
+
+    --muted: 33 20% 90%;
+    --muted-foreground: 25 15% 45%;
+
+    --accent: 30 40% 75%;
+    --accent-foreground: 25 30% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 82%;
+    --input: 30 20% 82%;
+    --ring: 25 45% 35%;
+
+    --radius: 0.75rem;
+
+    --warm-cream: 36 33% 97%;
+    --warm-beige: 33 25% 85%;
+    --warm-brown: 25 45% 35%;
+    --warm-brown-light: 25 35% 50%;
+    --warm-gold: 38 60% 65%;
+    --warm-sand: 35 30% 90%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  /* English headings use Playfair Display */
+  html[lang="en"] .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Hebrew headings use Frank Ruhl Libre */
+  html[lang="he"] .font-display {
+    font-family: 'Frank Ruhl Libre', serif;
+  }
+}
+
+/* Language switcher EN|HE: force Latin font so "HE" never renders as 文/A */
+header .lang-switcher-label {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Accessibility overrides */
+.a11y-high-contrast {
+  filter: contrast(1.4);
+}
+
+.a11y-highlight-links a,
+.a11y-highlight-links button {
+  outline: 2px solid hsl(var(--warm-gold)) !important;
+  outline-offset: 2px;
+}
+
+.a11y-stop-animations *,
+.a11y-stop-animations *::before,
+.a11y-stop-animations *::after {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition-duration: 0s !important;
+}
+
+.a11y-focus-outline *:focus-visible {
+  outline: 3px solid hsl(var(--primary)) !important;
+  outline-offset: 3px;
+}

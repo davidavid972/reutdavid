@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "title": "Homemade Sourdough Course | Reut David",
+    "description": "Online sourdough course with Reut David – real bread, homemade, the way it used to be. Learn to make sourdough at home."
+  },
+  "header": {
+    "title": "Reut David | Homemade Sourdough Course",
+    "button": "Join the Course"
+  },
+  "hero": {
+    "headline": "Welcome to the World of Sourdough",
+    "name": "Reut David",
+    "sub": "Real Bread. Homemade. Just Like It Used to Be."
+  },
+  "story": {
+    "p1": "It was during the COVID days. I was home with two little toddlers.",
+    "p2": "One day, I saw someone baking sourdough bread — and something about it pulled me in. I told myself: I want this too.",
+    "p3": "I reached out to my cousin, Neta, and she patiently walked me through the basics — starter, feedings, folding, fermentation, oven steam, and more.",
+    "p4": "My first loaves? Total failure. Flat. Dense. Too sour.",
+    "p5": "But I didn't give up. I learned. I tried again. I read, I asked questions, I made mistakes, I improved. And I kept going."
+  },
+  "video": {
+    "title": "See What It Looks Like in My Kitchen Today"
+  },
+  "instagram": {
+    "title": "A Real Glimpse Into My Kitchen",
+    "desc": "Everyday moments. Honest baking. A living, breathing sourdough starter.",
+    "button": "Follow on Instagram"
+  },
+  "benefits": {
+    "title": "What Will You Gain?",
+    "items": [
+      "Experience the excitement of pulling your own fresh loaf from the oven",
+      "Truly understand how sourdough works",
+      "Stop being afraid of dough",
+      "Bake bread that rivals artisan bakeries",
+      "Build real confidence in your home baking"
+    ]
+  },
+  "course": {
+    "title": "What You'll Learn",
+    "subtitle": "Not just learning to bake — feeling the dough.",
+    "items": [
+      {
+        "title": "Building a Starter from Scratch",
+        "desc": "A clear step-by-step process from day one to a strong, stable starter."
+      },
+      {
+        "title": "Feedings & Fermentation",
+        "desc": "Learn how to read your starter and recognize exactly when it's ready."
+      },
+      {
+        "title": "Proper Folding Techniques",
+        "desc": "Develop a strong gluten structure for beautiful volume and airy texture."
+      },
+      {
+        "title": "Shaping & Final Forming",
+        "desc": "Create smooth, tight dough before the final rise."
+      },
+      {
+        "title": "Professional Scoring",
+        "desc": "Learn how to score your bread for beautiful oven spring."
+      },
+      {
+        "title": "Baking in a Home Oven",
+        "desc": "Create the right steam environment for professional-quality results."
+      }
+    ]
+  },
+  "purchase": {
+    "title": "Join the Homemade Sourdough Course",
+    "price": "150₪ (Regular 280₪)",
+    "offer": "Special Limited-Time Launch Offer",
+    "features": [
+      "Full access to all lessons",
+      "Watch on any device",
+      "Personal support",
+      "6 months access"
+    ],
+    "button": "I'm Ready to Join",
+    "note": "Secure Payment | Cancellations according to Consumer Protection Law"
+  },
+  "lead": {
+    "title": "Want to Learn More?",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "button": "Send Me the Details",
+    "submitting": "Sending...",
+    "success": {
+      "title": "Thank You!",
+      "message": "Your details have been sent successfully. We'll get back to you soon."
+    },
+    "error": "An error occurred while sending your details. Please try again.",
+    "validation": {
+      "nameRequired": "Required field",
+      "emailInvalid": "Invalid email address",
+      "phoneInvalid": "Invalid phone number"
+    }
+  },
+  "gallery": {
+    "title": "From My Kitchen",
+    "images": [
+      { "alt": "Sliced sourdough bread" },
+      { "alt": "Sourdough starter in jar" },
+      { "alt": "Kneading dough" },
+      { "alt": "Sliced sourdough loaf" },
+      { "alt": "Cooling bread loaves" },
+      { "alt": "Professional scoring" }
+    ]
+  },
+  "testimonials": {
+    "title": "What My Students Say",
+    "items": [
+      {
+        "text": "I never believed I could make bread like this at home. Today I don't buy from the bakery anymore.",
+        "name": "Dana Levi"
+      },
+      {
+        "text": "Reut's explanations are clear and simple. Everything suddenly clicked for me.",
+        "name": "Michal Cohen"
+      },
+      {
+        "text": "This course changed my kitchen. I'm addicted to the smell of fresh bread.",
+        "name": "Shira Ohayon"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "Do I need prior experience?",
+        "a": "Not at all. The course is designed for those who have never touched sourdough before."
+      },
+      {
+        "q": "Do I need special equipment?",
+        "a": "No. A regular home oven and basic kitchen tools are enough."
+      },
+      {
+        "q": "How long do I have access to the course?",
+        "a": "Full access for 6 months."
+      },
+      {
+        "q": "What if I don't succeed?",
+        "a": "There's guidance and support so you won't be alone in the process."
+      }
+    ]
+  },
+  "footer": {
+    "rights": "All rights reserved © Reut David",
+    "links": "Privacy Policy | Terms of Use | Accessibility Statement | Instagram"
+  }
+}
+

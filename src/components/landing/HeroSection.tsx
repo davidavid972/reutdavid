@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import heroBg from "@/assets/hero-bg.jpg";
 import i18n from "@/lib/i18n";
 
 const Header = () => {
@@ -54,16 +53,29 @@ const HeroSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center pt-16">
-      <div className="absolute inset-0">
-        <img src={heroBg} alt={t("hero.headline")} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-foreground/40" />
-      </div>
-      <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
+    <section
+      className="relative min-h-screen w-full flex items-center justify-center pt-16"
+      aria-label={t("hero.headline")}
+    >
+      {/* Full-screen background: cover on mobile, contain on desktop; centered */}
+      <div
+        className="absolute inset-0 bg-cover md:bg-contain bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/H1.png')",
+          backgroundPosition: "center center",
+        }}
+      />
+      {/* Subtle dark overlay (40% opacity max) */}
+      <div
+        className="absolute inset-0 bg-black/40"
+        aria-hidden
+      />
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-3xl mx-auto">
         <p className="text-primary-foreground/80 font-body text-lg md:text-xl mb-4">
           {t("hero.headline")}
         </p>
-        <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground mb-6">
+        <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground mb-6 drop-shadow-md">
           {t("hero.name")}
         </h1>
         <p className="font-display text-xl md:text-3xl text-primary-foreground/90">

@@ -1,12 +1,13 @@
 import { useTranslation } from "react-i18next";
-import bread1 from "@/assets/bread-1.jpg";
-import bread2 from "@/assets/bread-2.jpg";
-import bread3 from "@/assets/bread-3.jpg";
-import bread4 from "@/assets/bread-4.jpg";
-import bread5 from "@/assets/bread-5.jpg";
-import bread6 from "@/assets/bread-6.jpg";
 
-const images = [bread1, bread2, bread3, bread4, bread5, bread6];
+const images = [
+  "/images/bread-1.jpeg",
+  "/images/bread-2.jpeg",
+  "/images/bread-3.jpeg",
+  "/images/bread-4.jpeg",
+  "/images/bread-5.jpeg",
+  "/images/bread-6.jpeg",
+];
 
 const GallerySection = () => {
   const { t } = useTranslation();

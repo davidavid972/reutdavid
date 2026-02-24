@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
+import { Link } from "react-router-dom";
 import { z } from "zod";
 import { supabase } from "@/lib/supabase";
+
+const linkClass = "text-primary underline underline-offset-2 hover:text-primary/80 transition-colors";
 
 const LeadFormSection = () => {
   const { t } = useTranslation();
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
+  const [consent, setConsent] = useState(false);
+  const [consentError, setConsentError] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<"name" | "email" | "phone", string>>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -23,6 +28,10 @@ const LeadFormSection = () => {
     e.preventDefault();
     setSubmitError(null);
 
+    if (!consent) {
+      setConsentError(true);
+    }
+
     const leadSchema = createSchema();
     const result = leadSchema.safeParse(form);
     if (!result.success) {
@@ -34,6 +43,7 @@ const LeadFormSection = () => {
       setErrors(fieldErrors);
       return;
     }
+    if (!consent) return;
     setErrors({});
     setSubmitting(true);
 
@@ -120,6 +130,33 @@ const LeadFormSection = () => {
               dir="ltr"
             />
             {errors.phone && <p className="text-destructive text-sm mt-1">{errors.phone}</p>}
+          </div>
+          <div>
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={consent}
+                onChange={(e) => {
+                  setConsent(e.target.checked);
+                  if (e.target.checked) setConsentError(false);
+                }}
+                className="mt-1 h-4 w-4 shrink-0 rounded border-input accent-primary"
+              />
+              <span className="font-body text-xs text-foreground/70 leading-relaxed">
+                <Trans
+                  i18nKey="purchase.unifiedConsent"
+                  components={{
+                    termsLink: <Link to="/terms" className={linkClass} />,
+                    privacyLink: <Link to="/privacy" className={linkClass} />,
+                  }}
+                />
+              </span>
+            </label>
+            {consentError && (
+              <p className="text-destructive text-xs mt-1.5 ps-7">
+                {t("purchase.unifiedConsentRequired")}
+              </p>
+            )}
           </div>
           <button
             type="submit"

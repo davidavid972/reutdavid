@@ -1,21 +1,11 @@
-import { useState } from "react";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { Check, ShieldCheck } from "lucide-react";
-import { Link } from "react-router-dom";
-
-const linkClass = "text-primary underline underline-offset-2 hover:text-primary/80 transition-colors";
 
 const PurchaseSection = () => {
   const { t } = useTranslation();
   const features = t("purchase.features", { returnObjects: true }) as string[];
-  const [consent, setConsent] = useState(false);
-  const [consentError, setConsentError] = useState(false);
 
   const scrollToLead = () => {
-    if (!consent) {
-      setConsentError(true);
-      return;
-    }
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -35,7 +25,7 @@ const PurchaseSection = () => {
           </div>
           <p className="text-sm text-warm-gold font-semibold mb-6">{t("purchase.offer")}</p>
 
-          <ul className="space-y-3 text-foreground font-body text-start mb-6">
+          <ul className="space-y-3 text-foreground font-body text-start mb-8">
             {features.map((item, i) => (
               <li key={i} className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-warm-gold shrink-0" strokeWidth={2.5} />
@@ -44,39 +34,9 @@ const PurchaseSection = () => {
             ))}
           </ul>
 
-          {/* Unified consent checkbox */}
-          <div className="text-start mb-6">
-            <label className="flex items-start gap-3 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={consent}
-                onChange={(e) => {
-                  setConsent(e.target.checked);
-                  if (e.target.checked) setConsentError(false);
-                }}
-                className="mt-1 h-4 w-4 shrink-0 rounded border-input accent-primary"
-              />
-              <span className="font-body text-xs text-foreground/70 leading-relaxed">
-                <Trans
-                  i18nKey="purchase.unifiedConsent"
-                  components={{
-                    termsLink: <Link to="/terms" className={linkClass} />,
-                    privacyLink: <Link to="/privacy" className={linkClass} />,
-                  }}
-                />
-              </span>
-            </label>
-            {consentError && (
-              <p className="text-destructive text-xs mt-1.5 ps-7">
-                {t("purchase.unifiedConsentRequired")}
-              </p>
-            )}
-          </div>
-
           <button
             onClick={scrollToLead}
-            disabled={!consent}
-            className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-bold text-lg hover:bg-warm-brown-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-bold text-lg hover:bg-warm-brown-light transition-colors"
           >
             {t("purchase.button")}
           </button>

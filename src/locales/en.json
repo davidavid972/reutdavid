@@ -79,7 +79,10 @@
       "6 months access"
     ],
     "button": "I'm Ready to Join",
-    "note": "Secure Payment | Cancellations according to Consumer Protection Law"
+    "note": "Secure Payment | Cancellations according to Consumer Protection Law",
+    "digitalConsent": "I acknowledge that this is a digital product and that once access is granted, cancellation will not be available in accordance with applicable law.",
+    "digitalConsentRequired": "You must acknowledge the digital product terms before purchase",
+    "paymentDisclaimer": "Payments are processed through secure third-party payment providers in accordance with accepted security standards."
   },
   "lead": {
     "title": "Want to Learn More?",
@@ -237,11 +240,11 @@
       },
       {
         "heading": "6. Purchases & Payments",
-        "content": "Purchasing a course on the Site grants the user personal, non-transferable access to course content for the period specified at the time of purchase. Payment is processed through secure payment gateways. Course prices include VAT unless otherwise stated."
+        "content": "Purchasing a course on the Site grants the user personal, non-transferable access to course content for the period specified at the time of purchase. Payments are processed through secure third-party payment providers in accordance with accepted security standards. Course prices include VAT unless otherwise stated."
       },
       {
-        "heading": "7. Cancellation Policy",
-        "content": "Cancellations shall be made in accordance with the Israeli Consumer Protection Act, 5741-1981:\n\n• You may cancel a transaction within 14 days from the date of purchase or the date of receiving course access, whichever is later.\n• A cancellation fee of up to 5% of the transaction price or NIS 100, whichever is lower, may apply in accordance with the law.\n• After viewing more than 50% of the course content, cancellation will no longer be possible."
+        "heading": "7. Digital Course Cancellation Policy",
+        "content": "Due to the nature of digital content that is accessible immediately after purchase, the following terms apply in accordance with applicable Israeli consumer protection law:\n\n• Cancellation is not available once access to the course content has been granted and/or the content has been viewed.\n• If access has not been used and no content has been viewed, a cancellation request may be submitted and reviewed subject to applicable law.\n• Cancellation requests must be submitted in writing to: reutdavid.courses@gmail.com.\n\nPurchasing the course constitutes explicit agreement to these terms."
       },
       {
         "heading": "8. Governing Law",

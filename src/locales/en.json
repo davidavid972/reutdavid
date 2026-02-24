@@ -150,7 +150,137 @@
   },
   "footer": {
     "rights": "All rights reserved © Reut David",
-    "links": "Privacy Policy | Terms of Use | Accessibility Statement | Instagram"
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "accessibility": "Accessibility Statement",
+    "instagram": "Instagram"
+  },
+  "cookie": {
+    "message": "This website uses cookies to ensure proper functionality and improve user experience.",
+    "accept": "Accept All",
+    "reject": "Reject Non-Essential",
+    "learnMore": "Learn More"
+  },
+  "legal": {
+    "backHome": "Back to Home"
+  },
+  "leadConsent": {
+    "label": "I agree to the Privacy Policy and Terms of Use",
+    "required": "You must agree to the Privacy Policy and Terms of Use"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: February 2026",
+    "sections": [
+      {
+        "heading": "1. General",
+        "content": "This website (\"the Site\") is operated by Reut David (\"we\", \"our\", \"us\"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and protect your data when you use our Site and services."
+      },
+      {
+        "heading": "2. Data Collection",
+        "content": "We may collect the following information:\n\n• Full name – for communication and personalized service.\n• Email address – for correspondence, updates, and marketing communications (subject to your consent).\n• Phone number – for direct communication.\n• Technical information – IP address, browser type, operating system, device type, and cookie data, collected automatically during browsing."
+      },
+      {
+        "heading": "3. Purpose of Processing",
+        "content": "The information we collect is used for the following purposes:\n\n• Communication – responding to inquiries and requests.\n• Service delivery – course registration, content access, and support.\n• Marketing communications – sending updates, promotions, and relevant content, subject to your explicit consent only.\n• User experience improvement – analyzing browsing patterns to enhance our Site and services."
+      },
+      {
+        "heading": "4. Cookies Usage",
+        "content": "The Site uses cookies for proper functionality, improving browsing experience, and collecting anonymous statistical data. You can control cookie settings through your browser. Blocking cookies may affect your browsing experience on the Site."
+      },
+      {
+        "heading": "5. Data Storage & Security",
+        "content": "We implement industry-standard and advanced security measures to protect your information from unauthorized access, misuse, or loss. Data is stored on secure servers and is deleted when no longer necessary for the purposes for which it was collected."
+      },
+      {
+        "heading": "6. Third-Party Services",
+        "content": "We do not sell or share personal information with third parties for marketing purposes. However, we may use external service providers for Site operations, such as:\n\n• Hosting services (Vercel).\n• Analytics tools (if applicable).\n\nThese providers are contractually obligated to maintain data confidentiality and may not use it for other purposes."
+      },
+      {
+        "heading": "7. User Rights",
+        "content": "In accordance with the Israeli Privacy Protection Act, 5741-1981, you have the following rights:\n\n• The right to access the personal data collected about you.\n• The right to request correction or deletion of inaccurate or outdated information.\n• The right to object to the use of your data for direct marketing.\n• The right to request deletion of your data from our databases.\n\nTo exercise your rights, please contact us using the details provided below."
+      },
+      {
+        "heading": "8. Contact Information",
+        "content": "For any questions, requests, or inquiries regarding this Privacy Policy, please contact us:\n\nEmail: reutdavid.courses@gmail.com"
+      },
+      {
+        "heading": "9. Policy Updates",
+        "content": "We reserve the right to update this Privacy Policy from time to time. Material changes will be published on the Site. Continued use of the Site after policy updates constitutes acceptance of the revised policy."
+      }
+    ]
+  },
+  "termsOfUse": {
+    "title": "Terms of Use",
+    "lastUpdated": "Last updated: February 2026",
+    "sections": [
+      {
+        "heading": "1. General",
+        "content": "Welcome to the website of Reut David (\"the Site\"). Use of the Site and the services offered on it is subject to these Terms of Use. Browsing the Site constitutes full agreement to the terms outlined herein."
+      },
+      {
+        "heading": "2. Use of the Site",
+        "content": "The Site is intended for personal, non-commercial use only. Users agree to use the Site in compliance with all applicable laws and to refrain from any use that may harm the Site, its content, or other users."
+      },
+      {
+        "heading": "3. Intellectual Property",
+        "content": "All content on the Site, including texts, images, videos, graphic design, logos, and trademarks, is protected by copyright and intellectual property rights belonging to Reut David. Copying, reproducing, distributing, or commercial use of content without prior written consent is prohibited."
+      },
+      {
+        "heading": "4. Prohibition of Copying and Distribution",
+        "content": "It is strictly prohibited to copy, download, duplicate, distribute, broadcast, or publish any Site content, including lessons, videos, and course materials, in any form, without explicit written consent from Reut David."
+      },
+      {
+        "heading": "5. Limitation of Liability",
+        "content": "The Site and services are provided \"as is\" (AS IS). Reut David does not guarantee uninterrupted availability of the Site and is not liable for any direct or indirect damages arising from its use. The content on the Site does not constitute professional advice and should not be relied upon as a substitute for qualified counsel."
+      },
+      {
+        "heading": "6. Purchases & Payments",
+        "content": "Purchasing a course on the Site grants the user personal, non-transferable access to course content for the period specified at the time of purchase. Payment is processed through secure payment gateways. Course prices include VAT unless otherwise stated."
+      },
+      {
+        "heading": "7. Cancellation Policy",
+        "content": "Cancellations shall be made in accordance with the Israeli Consumer Protection Act, 5741-1981:\n\n• You may cancel a transaction within 14 days from the date of purchase or the date of receiving course access, whichever is later.\n• A cancellation fee of up to 5% of the transaction price or NIS 100, whichever is lower, may apply in accordance with the law.\n• After viewing more than 50% of the course content, cancellation will no longer be possible."
+      },
+      {
+        "heading": "8. Governing Law",
+        "content": "These Terms of Use shall be governed exclusively by the laws of the State of Israel. Exclusive jurisdiction for any matter arising from the use of the Site is vested in the competent courts in the Tel Aviv-Jaffa district."
+      },
+      {
+        "heading": "9. Contact Information",
+        "content": "For any questions or inquiries regarding these Terms of Use, please contact us:\n\nEmail: reutdavid.courses@gmail.com"
+      }
+    ]
+  },
+  "accessibilityStatement": {
+    "title": "Accessibility Statement",
+    "lastUpdated": "Last updated: February 2026",
+    "sections": [
+      {
+        "heading": "Commitment to Accessibility",
+        "content": "The Reut David website is committed to providing equal access to all users, including people with disabilities. We continuously work to improve the accessibility and browsing experience for all users."
+      },
+      {
+        "heading": "Compliance with Israeli Standard 5568",
+        "content": "The Site was developed with the aim of meeting the Israeli Standard for web accessibility (SI 5568) and in accordance with WCAG 2.1 Level AA guidelines. We continue to make adjustments and improvements to meet standard requirements."
+      },
+      {
+        "heading": "Accessibility Adjustments",
+        "content": "• Keyboard navigation support.\n• Screen reader compatibility.\n• Text enlargement option.\n• High contrast mode.\n• Link highlighting.\n• Animation pause control.\n• Proper hierarchical heading structure.\n• Image alt text descriptions."
+      },
+      {
+        "heading": "Known Limitations",
+        "content": "Some components or content may not yet be fully accessible. We work continuously to identify and address accessibility issues. If you encounter an accessibility problem, we would be happy to hear about it and address it promptly."
+      },
+      {
+        "heading": "Contact Method",
+        "content": "For any requests, questions, or reports regarding accessibility issues, please contact us:\n\nEmail: reutdavid.courses@gmail.com\n\nWe are committed to addressing accessibility inquiries within 7 business days."
+      },
+      {
+        "heading": "Last Updated",
+        "content": "This Accessibility Statement was last updated in February 2026."
+      }
+    ]
   }
 }
 

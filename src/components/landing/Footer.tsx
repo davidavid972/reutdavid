@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const { t } = useTranslation();
-  const links = t("footer.links").split(" | ");
 
   return (
     <footer className="py-12 bg-primary text-primary-foreground">
@@ -11,18 +11,22 @@ const Footer = () => {
           {t("footer.rights")}
         </p>
         <div className="flex items-center justify-center gap-8 text-sm text-primary-foreground/70 flex-wrap">
-          {links.slice(0, -1).map((link, i) => (
-            <button key={i} className="hover:text-primary-foreground transition-colors">
-              {link}
-            </button>
-          ))}
+          <Link to="/privacy" className="hover:text-primary-foreground transition-colors">
+            {t("footer.privacy")}
+          </Link>
+          <Link to="/terms" className="hover:text-primary-foreground transition-colors">
+            {t("footer.terms")}
+          </Link>
+          <Link to="/accessibility" className="hover:text-primary-foreground transition-colors">
+            {t("footer.accessibility")}
+          </Link>
           <a
             href="https://www.instagram.com/reut_david10/reels/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-primary-foreground transition-colors"
           >
-            {links[links.length - 1]}
+            {t("footer.instagram")}
           </a>
         </div>
       </div>

@@ -44,6 +44,25 @@ const AccessibilityButton = () => {
     apply(state);
   }, [state, apply]);
 
+  // Lock body scroll while the accessibility modal is open
+  useEffect(() => {
+    if (!open) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   const update = (patch: Partial<A11yState>) => setState((prev) => ({ ...prev, ...patch }));
 
   const reset = () => {
@@ -99,36 +118,61 @@ const AccessibilityButton = () => {
       >
         <Accessibility className="w-5 h-5" />
       </button>
+
       {open && (
         <div
-          className="absolute bottom-14 start-0 bg-card border border-border rounded-xl p-4 shadow-xl min-w-[220px]"
-          role="menu"
-          aria-label="אפשרויות נגישות"
+          className="fixed inset-0 z-[60] overflow-x-hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="נגישות"
         >
-          <p className="font-display font-semibold text-foreground mb-3 text-sm">נגישות</p>
-          <div className="space-y-1">
-            {controls.map((c) => (
-              <button
-                key={c.label}
-                role="menuitem"
-                onClick={c.action}
-                className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-body transition-colors text-start ${
-                  c.active
-                    ? "bg-primary/10 text-primary font-semibold"
-                    : "text-foreground hover:bg-muted"
-                }`}
-              >
-                <c.icon className="w-4 h-4 shrink-0" strokeWidth={1.5} />
-                <span>{c.label}</span>
-              </button>
-            ))}
-          </div>
+          {/* Overlay */}
           <button
-            onClick={reset}
-            className="w-full mt-3 text-xs text-muted-foreground hover:text-foreground transition-colors"
-          >
-            איפוס הגדרות
-          </button>
+            type="button"
+            className="absolute inset-0 bg-black/50"
+            aria-label="סגירת חלון נגישות"
+            onClick={() => setOpen(false)}
+          />
+
+          {/* Modal */}
+          <div className="relative h-full w-full p-4 flex items-center justify-center">
+            <div className="relative w-full max-w-sm max-h-[calc(100vh-2rem)] overflow-auto bg-card border border-border rounded-xl shadow-2xl p-4">
+              <div className="flex items-center justify-between gap-4 mb-3">
+                <p className="font-display font-semibold text-foreground text-sm">נגישות</p>
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  סגירה
+                </button>
+              </div>
+
+              <div className="space-y-1">
+                {controls.map((c) => (
+                  <button
+                    key={c.label}
+                    onClick={c.action}
+                    className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-body transition-colors text-start ${
+                      c.active
+                        ? "bg-primary/10 text-primary font-semibold"
+                        : "text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    <c.icon className="w-4 h-4 shrink-0" strokeWidth={1.5} />
+                    <span>{c.label}</span>
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={reset}
+                className="w-full mt-3 text-xs text-muted-foreground hover:text-foreground transition-colors"
+              >
+                איפוס הגדרות
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

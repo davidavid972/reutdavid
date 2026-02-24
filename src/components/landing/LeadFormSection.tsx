@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { z } from "zod";
 import { supabase } from "@/lib/supabase";
 
 const LeadFormSection = () => {
   const { t } = useTranslation();
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
+  const [consent, setConsent] = useState(false);
+  const [consentError, setConsentError] = useState<string | null>(null);
   const [errors, setErrors] = useState<Partial<Record<"name" | "email" | "phone", string>>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -22,6 +25,11 @@ const LeadFormSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError(null);
+    setConsentError(null);
+
+    if (!consent) {
+      setConsentError(t("leadConsent.required"));
+    }
 
     const leadSchema = createSchema();
     const result = leadSchema.safeParse(form);
@@ -34,6 +42,7 @@ const LeadFormSection = () => {
       setErrors(fieldErrors);
       return;
     }
+    if (!consent) return;
     setErrors({});
     setSubmitting(true);
 
@@ -120,6 +129,30 @@ const LeadFormSection = () => {
               dir="ltr"
             />
             {errors.phone && <p className="text-destructive text-sm mt-1">{errors.phone}</p>}
+          </div>
+          <div>
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={consent}
+                onChange={(e) => {
+                  setConsent(e.target.checked);
+                  if (e.target.checked) setConsentError(null);
+                }}
+                className="mt-1 h-4 w-4 shrink-0 rounded border-input accent-primary"
+              />
+              <span className="font-body text-sm text-foreground/80 leading-relaxed">
+                {t("leadConsent.label")}{" "}
+                <Link to="/privacy" className="text-primary underline underline-offset-2" target="_blank">
+                  {t("footer.privacy")}
+                </Link>{" "}
+                &{" "}
+                <Link to="/terms" className="text-primary underline underline-offset-2" target="_blank">
+                  {t("footer.terms")}
+                </Link>
+              </span>
+            </label>
+            {consentError && <p className="text-destructive text-sm mt-1">{consentError}</p>}
           </div>
           <button
             type="submit"

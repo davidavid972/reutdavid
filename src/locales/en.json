@@ -80,7 +80,7 @@
     ],
     "button": "I'm Ready to Join",
     "note": "Secure Payment | Cancellations according to Consumer Protection Law",
-    "unifiedConsent": "I confirm that I have read the <termsLink>Terms of Use</termsLink> and <privacyLink>Privacy Policy</privacyLink>, and acknowledge that this is a digital product and that once access is granted, cancellation will not be available in accordance with applicable law.",
+    "unifiedConsent": "I confirm that I have read the <termsLink>Terms of Use</termsLink> and <privacyLink>Privacy Policy</privacyLink> and acknowledge that this is a digital product and that once access is granted, cancellation will not be available in accordance with Israeli Consumer Protection Law.",
     "unifiedConsentRequired": "You must agree to the terms before purchase",
     "paymentDisclaimer": "Payments are processed through secure third-party payment providers in accordance with accepted security standards."
   },

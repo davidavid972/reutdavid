@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import { Check, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const linkClass = "text-primary underline underline-offset-2 hover:text-primary/80 transition-colors";
 
 const PurchaseSection = () => {
   const { t } = useTranslation();
   const features = t("purchase.features", { returnObjects: true }) as string[];
-  const [digitalConsent, setDigitalConsent] = useState(false);
+  const [consent, setConsent] = useState(false);
   const [consentError, setConsentError] = useState(false);
 
   const scrollToLead = () => {
-    if (!digitalConsent) {
+    if (!consent) {
       setConsentError(true);
       return;
     }
@@ -42,45 +44,38 @@ const PurchaseSection = () => {
             ))}
           </ul>
 
-          {/* Digital product consent checkbox */}
+          {/* Unified consent checkbox */}
           <div className="text-start mb-6">
             <label className="flex items-start gap-3 cursor-pointer">
               <input
                 type="checkbox"
-                checked={digitalConsent}
+                checked={consent}
                 onChange={(e) => {
-                  setDigitalConsent(e.target.checked);
+                  setConsent(e.target.checked);
                   if (e.target.checked) setConsentError(false);
                 }}
                 className="mt-1 h-4 w-4 shrink-0 rounded border-input accent-primary"
               />
               <span className="font-body text-xs text-foreground/70 leading-relaxed">
-                {t("purchase.digitalConsent")}
+                <Trans
+                  i18nKey="purchase.unifiedConsent"
+                  components={{
+                    termsLink: <Link to="/terms" className={linkClass} />,
+                    privacyLink: <Link to="/privacy" className={linkClass} />,
+                  }}
+                />
               </span>
             </label>
             {consentError && (
               <p className="text-destructive text-xs mt-1.5 ps-7">
-                {t("purchase.digitalConsentRequired")}
+                {t("purchase.unifiedConsentRequired")}
               </p>
             )}
           </div>
 
-          {/* Legal links */}
-          <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground mb-4 flex-wrap">
-            <Link to="/privacy" className="underline underline-offset-2 hover:text-foreground transition-colors">
-              {t("footer.privacy")}
-            </Link>
-            <Link to="/terms" className="underline underline-offset-2 hover:text-foreground transition-colors">
-              {t("footer.terms")}
-            </Link>
-            <Link to="/accessibility" className="underline underline-offset-2 hover:text-foreground transition-colors">
-              {t("footer.accessibility")}
-            </Link>
-          </div>
-
           <button
             onClick={scrollToLead}
-            disabled={!digitalConsent}
+            disabled={!consent}
             className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-bold text-lg hover:bg-warm-brown-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {t("purchase.button")}

@@ -11,7 +11,7 @@ const FloatingBackButton = () => {
 
   return (
     <button
-      onClick={() => navigate(-1)}
+      onClick={() => (window.history.length > 1 ? navigate(-1) : navigate("/"))}
       className="fixed top-20 z-40 start-4 flex items-center gap-1.5 bg-foreground text-background rounded-full px-4 py-2 text-sm font-semibold shadow-md hover:opacity-80 transition-opacity"
       aria-label={t("legal.back")}
     >

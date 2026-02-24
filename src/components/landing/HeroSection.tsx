@@ -23,8 +23,9 @@ const Header = () => {
             alt=""
             className="h-9 w-auto max-h-[36px] md:h-12 md:max-h-[48px] lg:h-14 lg:max-h-[56px] object-contain shrink-0"
           />
-          <span className="font-display text-lg md:text-xl font-bold text-foreground truncate">
-            {t("header.title")}
+          <span className="font-display text-lg md:text-xl font-bold text-foreground whitespace-nowrap">
+            <span className="md:hidden">{t("header.titleShort")}</span>
+            <span className="hidden md:inline truncate">{t("header.title")}</span>
           </span>
         </div>
         <div className="flex items-center gap-3">

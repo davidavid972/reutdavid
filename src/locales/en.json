@@ -162,7 +162,8 @@
     "learnMore": "Learn More"
   },
   "legal": {
-    "backHome": "Back to Home"
+    "backHome": "Back to Home",
+    "back": "Back"
   },
   "leadConsent": {
     "label": "I agree to the Privacy Policy and Terms of Use",

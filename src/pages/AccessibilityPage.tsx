@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import FloatingBackButton from "@/components/legal/FloatingBackButton";
 
 const AccessibilityPage = () => {
   const { t } = useTranslation();
@@ -10,13 +10,8 @@ const AccessibilityPage = () => {
 
   return (
     <main className="min-h-screen bg-background py-16 px-4">
+      <FloatingBackButton />
       <div className="container mx-auto max-w-3xl">
-        <Link
-          to="/"
-          className="inline-block mb-8 text-sm text-primary hover:text-primary/80 transition-colors font-medium"
-        >
-          &larr; {t("legal.backHome")}
-        </Link>
 
         <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">
           {t("accessibilityStatement.title")}

@@ -17,9 +17,16 @@ const Header = () => {
   return (
     <header className="fixed top-0 start-0 end-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <span className="font-display text-lg md:text-xl font-bold text-foreground">
-          {t("header.title")}
-        </span>
+        <div className="flex items-center gap-[10px] min-w-0 py-1">
+          <img
+            src="/images/logo.jpeg"
+            alt=""
+            className="h-9 w-auto max-h-[36px] md:h-12 md:max-h-[48px] lg:h-14 lg:max-h-[56px] object-contain shrink-0"
+          />
+          <span className="font-display text-lg md:text-xl font-bold text-foreground truncate">
+            {t("header.title")}
+          </span>
+        </div>
         <div className="flex items-center gap-3">
           <button
             onClick={toggleLanguage}

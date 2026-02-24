@@ -160,8 +160,8 @@ const LeadFormSection = () => {
           </div>
           <button
             type="submit"
-            disabled={submitting}
-            className="w-full bg-primary text-primary-foreground py-3 rounded-xl font-bold text-lg hover:bg-warm-brown-light transition-colors disabled:opacity-60"
+            disabled={submitting || !consent}
+            className="w-full bg-primary text-primary-foreground py-3 rounded-xl font-bold text-lg hover:bg-warm-brown-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {submitting ? t("lead.submitting") : t("lead.button")}
           </button>
